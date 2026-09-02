@@ -21,3 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/.claude
+database/database.sqlite
+storage/framework/testing/*.sqlite
