@@ -15,6 +15,12 @@ pest()->extend(Tests\TestCase::class)
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->in('Feature', 'Unit');
 
+// Test konkurensi mengelola koneksi database file-nya sendiri (dua proses PHP
+// terpisah berbagi satu file sqlite), jadi sengaja tidak memakai
+// RefreshDatabase yang mengunci koneksi default ke transaksi :memory:.
+pest()->extend(Tests\TestCase::class)
+    ->in('Concurrency');
+
 /*
 |--------------------------------------------------------------------------
 | Expectations
